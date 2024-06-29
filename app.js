@@ -3,6 +3,9 @@ const express = require("express");
 
 const app = express();
 
+// Middleware
+app.use(express.json())
+
 // Controllers
 const workoutsController = require("./controllers/workoutsController")
 

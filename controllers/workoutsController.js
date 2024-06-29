@@ -19,7 +19,13 @@ router.get("/:id", (req, res) => {
     } else {
         res.status(404).json({error: `Workout with id: ${id} not found!`})
     }
+})
 
+// Create Route
+router.post("/", (req, res) => {
+    const currentWorkout = {id: workoutArray.length + 1, ...req.body}
+    workoutArray.push(currentWorkout)
+    res.status(201).send(workoutArray[workoutArray.length - 1])
 })
 
 module.exports = router;
